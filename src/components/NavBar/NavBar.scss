@@ -1,0 +1,18 @@
+.navBar {
+  box-shadow: 4px 14px 44px -12px rgba(160, 158, 158, 0.59);
+  -webkit-box-shadow: 4px 14px 44px -12px rgba(160, 158, 158, 0.59);
+  -moz-box-shadow: 4px 14px 44px -12px rgba(160, 158, 158, 0.59);
+  color: #434343;
+  text-transform: uppercase;
+  display: flex;
+  
+
+  .logoNav{
+    width: 30%;
+  }
+
+  .cart-widget{
+    padding: 50px;
+  }
+
+}
