@@ -1,8 +1,12 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import ItemCount from "../ItemCount/ItemCount";
 import "./ItemProduct.scss";
 
-const ItemProduct = ({ title, price, image }) => {
+const ItemProduct = ({data}) => {
+  
+  const {title, image, price,stock } = data
+
   return (
     <Card style={{ width: "12rem" }} className='cardProduct'>
       <Card.Img variant="top"className='cardImg' src={`/assets/${image}`} />
@@ -11,7 +15,8 @@ const ItemProduct = ({ title, price, image }) => {
         <Card.Text className='cardPrice'>
          $ {price}
         </Card.Text>
-        <Button variant= 'outline-secondary' className='cardButton'>Comprar</Button>
+        <ItemCount stock= {stock} />
+        <Button variant= 'outline-secondary' className='cardButton'>Agregar al Carrito</Button>
       </Card.Body>
     </Card>
   );
