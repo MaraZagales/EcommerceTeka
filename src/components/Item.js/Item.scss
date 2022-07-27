@@ -1,0 +1,43 @@
+
+    .itemCard {
+        width: 20%;
+        box-shadow: 2px 2px 2px 2px rgb(160 158 158 / 59%);
+       border: solid 10px #fff;
+        margin: 50px;
+    
+        display: inline-block;
+      
+        .cardImg {
+          width: 100%;
+          border-bottom: 2px solid #a09e9e;
+          border-radius: 2%;
+        }
+      
+        .cardTitle {
+          font-size: 15px;
+          font-weight: bold;
+          color: #434343;
+          text-transform: uppercase;
+          margin: 5px;
+          text-align: center;
+      
+          .cardIcon {
+            padding: 10px;
+            color: rgb(238, 150, 96);
+      
+            &:hover {
+              color: rgb(230, 105, 28);
+              font-size: 17px;
+            }
+          }
+      
+         
+        }
+
+        .cardPrice {
+            color: #434343;
+            margin: 5px;
+            text-align: center;
+          }
+      }
+       
