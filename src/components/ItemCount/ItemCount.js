@@ -24,7 +24,8 @@ const ItemCount = ({stock}) => {
         <div className='ItemCount'>        
              <Button onClick={removeNumber} variant= 'outline-secondary' className='cardButton'>-</Button>
              <p>{contador}</p>
-             <Button onClick={addNumber}  variant= 'outline-secondary' className='cardButton'>+</Button>     
+             <Button onClick={addNumber}  variant= 'outline-secondary' className='cardButton'>+</Button>   
+             <Button variant= 'outline-secondary' className='cardButton'>Agregar al Carrito</Button>  
         </div>
     );
 }

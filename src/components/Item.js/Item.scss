@@ -1,12 +1,15 @@
 
     .itemCard {
-        width: 20%;
+        width: 10%;
         box-shadow: 2px 2px 2px 2px rgb(160 158 158 / 59%);
-       border: solid 10px #fff;
-        margin: 50px;
-    
-        display: inline-block;
-      
+        border: solid 10px #fff;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        
+        a {
+          text-decoration: none;
+        }
         .cardImg {
           width: 100%;
           border-bottom: 2px solid #a09e9e;
@@ -39,5 +42,9 @@
             margin: 5px;
             text-align: center;
           }
+
+        .cardButton{
+          margin: 0 auto;
+        }
       }
        

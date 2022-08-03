@@ -1,33 +1,16 @@
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
+import products from "../../utils/products.mock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import "./ItemDetailContainer.scss";
-import products from "../../utils/products.mock";
+//import { useParams } from "react-router-dom";
 
-const ItemDetailContainer = ({title}) => {
-  const [Item, setItem] = useState([]);
 
-  useEffect(() => {
-    const getItem = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(products);
-      }, 2000);
-    });
-
-    getItem
-      .then((res) => {
-        setItem(res);
-      })
-      .catch((error) => {
-        console.log("fallo");
-      })
-      .finally(() => {
-        console.log("finalizó");
-      });
-  }, []);
+const ItemDetailContainer = () => {
+console.log("productos: ", products)
 
   return (
     <div className="listDetail">
-      <ItemDetail data={Item} />
+      <ItemDetail />
     </div>
   );
 };

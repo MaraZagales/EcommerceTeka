@@ -4,24 +4,25 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./NavBar.scss";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div>
       <Navbar expand="lg" className="navBar">
         <Container>
-          <Navbar.Brand href="#home" className="logoNav"><img
+          <Link to="/"><Navbar.Brand href="#home" className="logoNav"><img
           src="/assets/logoTeka.jpg"
           alt="logo de Teka"
           
-        /> </Navbar.Brand>
+        /> </Navbar.Brand></Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link className="navLink" href="#home">Inicio</Nav.Link>
-              <Nav.Link className="navLink"href="#link">Productos</Nav.Link>
-              <Nav.Link className="navLink"href="#link">Sobre Nosotros</Nav.Link>
-              <Nav.Link className="navLink"href="#link">Contactanos</Nav.Link>
+              <Link to= "/"><Nav.Link className="navLink" href="#home">Inicio</Nav.Link> </Link>
+              <Link to= "/productos"><Nav.Link className="navLink"href="#link">Productos</Nav.Link> </Link>
+              <Link to= "/nosotros"><Nav.Link className="navLink"href="#link">Sobre Nosotros</Nav.Link> </Link>
+              <Link to= "/contacto"><Nav.Link className="navLink"href="#link">Contactanos</Nav.Link> </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

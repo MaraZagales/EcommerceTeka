@@ -1,12 +1,14 @@
-/*import ItemCount from "../ItemCount/ItemCount";*/
+import Button from "react-bootstrap/Button";
 import "./Item.scss";
+import { Link } from "react-router-dom";
 
 const Item = ({ data }) => {
-  const { title, image, price /*stock*/ } = data;
+  const { title, image, price, id } = data;
 
   return (
    
     <div className="itemCard">
+      <Link to={`/productos/${id}`}>
       <img src={`/assets/${image}`} className="cardImg" alt="Imagen producto" />
       <div>
         <p className="cardTitle">
@@ -24,10 +26,12 @@ const Item = ({ data }) => {
             </svg>
           </span>
         </p>
-        <p className = "cardPrice">$ {price}</p>
+        <p className="cardPrice">$ {price}</p>
       </div>
-      {/*<ItemCount stock= {stock} />
-        <Button variant= 'outline-secondary' className='cardButton'>Agregar al Carrito</Button>*/}
+      <Button variant="outline-secondary" className="cardButton">
+        Agregar al Carrito
+      </Button>
+    </Link>
     </div>
     
   );
