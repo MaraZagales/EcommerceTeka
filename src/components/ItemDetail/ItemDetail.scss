@@ -1,0 +1,38 @@
+.itemDetail{
+    display: flex;
+    flex-direction: row;
+    .itemImg{
+        width: 20%;
+    }
+    .itemCount{
+        display: flex;
+        flex-direction: column;
+    }
+    .itemTitle{
+    margin: 15px;
+    padding: 5px;
+    color: #434343;
+    text-transform: uppercase;
+    text-shadow: 0.5px 0.5px #a09e9e;
+    }
+
+    .itemDescription{
+        margin: 15px;
+        padding: 5px;
+        color: #434343;
+        font-size: 15px;
+    }
+    
+    .itemPrice{
+        margin: 15px;
+        padding: 5px;
+        color: #434343;
+        font-size: 15px;
+    
+    }
+
+    .cardButton{
+        margin: 15px;
+        padding: 5px;
+    }
+}

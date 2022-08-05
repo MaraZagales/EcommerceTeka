@@ -2,17 +2,27 @@ import { useEffect, useState } from "react"
 import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
 import products from '../../utils/products.mock'
+import { useParams } from 'react-router-dom';
 
 
 
 const ItemListContainer = ({title}) => {
 
         const [listProducts, setListProducts] = useState([])
+        const { categoryName } = useParams()
+        
+        const filterCategory = products.filter((products) => products.category === categoryName)
         
         useEffect(() => {
         const getProducts = new Promise( (resolve, reject) => {
             setTimeout( () => {
-                resolve(products)
+                if (categoryName) {
+                    resolve(filterCategory)
+                }
+    
+                else {
+                    resolve(products)
+                }
             }, 2000)
         })
           

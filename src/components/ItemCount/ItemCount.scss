@@ -1,5 +1,16 @@
 .ItemCount{
     display: flex;
-    justify-content: space-evenly;
-    padding: 5px;
+    padding: 10px;
+    margin: 15px;
+    font-size: 20px;
+    
+    p{
+        padding: 10px;
+        color: #434343;
+        font-size: 20px;
+    }
+    .buttonCount{
+        margin: 15px;
+        padding: 5px;
+    }
 }

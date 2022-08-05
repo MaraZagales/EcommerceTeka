@@ -29,7 +29,7 @@ const Item = ({ data }) => {
         <p className="cardPrice">$ {price}</p>
       </div>
       <Button variant="outline-secondary" className="cardButton">
-        Agregar al Carrito
+       Ver detalles del producto
       </Button>
     </Link>
     </div>
