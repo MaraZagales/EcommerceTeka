@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext"
 import Button from "react-bootstrap/Button";
 import "./ItemCount.scss";
 
-const ItemCount = ({ stock, quantitySelected }) => {
+const ItemCount = ({ stock,setQuantitySelected, productData }) => {
+  
+  const { addProductToCart } = useContext(CartContext)
+
   const [contador, setContador] = useState(1);
 
   const onAdd = (contador) => {
-    quantitySelected(contador);
+    console.log("Agregar al carrito: ", productData)
+    addProductToCart(productData)
+    setQuantitySelected(contador)
   };
 
   const addNumber = () => {
@@ -30,16 +36,16 @@ const ItemCount = ({ stock, quantitySelected }) => {
           className="cardButton"
         >
           -
-        </Button> <p>{contador}</p><Button
+        </Button> 
+        <p>{contador}</p>
+        <Button
           onClick={addNumber}
           disabled={stock === contador}
           variant="outline-secondary"
           className="cardButton"
         >
           +
-        </Button>
-        
-        
+        </Button>        
       </div>
       <div className="card-action">
         <Button
@@ -47,7 +53,7 @@ const ItemCount = ({ stock, quantitySelected }) => {
           onClick={() => onAdd(contador)}
           disabled={stock === 0}
         >
-          Comprar
+         Agregar al Carrito
         </Button>
       </div>
       <div className="card-stock">
@@ -55,6 +61,6 @@ const ItemCount = ({ stock, quantitySelected }) => {
       </div>
     </div>
   );
-};
+ };
 
 export default ItemCount;

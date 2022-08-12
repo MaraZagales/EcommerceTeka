@@ -22,7 +22,7 @@ const products = [
     {
         id:3,
         title: "Rack TV",
-        category: "Racks TV",
+        category: "Racks",
         description: "Medidas: 140cm. Fabricado en melamina sobre MDF de 18mm.",
         price: 25000,
         image: 'item5.jpeg',
@@ -32,7 +32,7 @@ const products = [
     {
         id:4,
         title: "Velas",
-        category: "Decoración",
+        category: "Decoracion",
         description: "Velas de cera de soja, en cuenco de madera",
         price: 1000,
         image: 'item8.jpg',
@@ -41,7 +41,7 @@ const products = [
     {
         id:5,
         title: "Mesa de Luz",
-        category: "Mesas de Luz",
+        category: "MesasDeLuz",
         description: "Fabricada en melamina sobre mdf de 18mm, con correderas telescópicas y regatones para darle una resistencia perfecta.",
         price: 10000,
         image: 'item7.jpg',

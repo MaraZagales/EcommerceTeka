@@ -2,6 +2,7 @@ import Button from "react-bootstrap/Button";
 import "./Item.scss";
 import { Link } from "react-router-dom";
 
+
 const Item = ({ data }) => {
   const { title, image, price, id } = data;
 

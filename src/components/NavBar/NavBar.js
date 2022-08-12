@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Navbar from "react-bootstrap/Navbar";
 import "./NavBar.scss";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   const links = [{name:"Mesas", url:"/category/Mesas" },
   {name:"Bibliotecas", url:"/category/Bibliotecas" },
-  {name:"Racks TV", url:"/category/Racks TV" },
+  {name:"Racks TV", url:"/category/Racks" },
   {name:"Decoración", url:"/category/Decoración" },
-  {name:"Mesas de luz", url:"/category/Mesas de luz" },
+  {name:"Mesas de luz", url:"/category/MesasDeLuz" },
   {name: "Todos los productos", url:"/productos" }
 ];
 
@@ -41,8 +41,10 @@ const NavBar = () => {
               <Link to= "/contacto"><Nav.Link className="navLink">Contactanos</Nav.Link> </Link>
             </Nav>
           </Navbar.Collapse>
+          
+          <CartWidget />
         </Container>
-        <CartWidget />
+        
       </Navbar>
     </div>
   );
