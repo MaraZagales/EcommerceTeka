@@ -22,7 +22,7 @@ const ItemDetail = ({ data }) => {
               <Link to="/cart">TERMINAR COMPRA</Link>
             </Button>
           ) : (
-            <ItemCount stock={stock} quantitySelected={setQuantitySelected} />
+            <ItemCount stock={stock} quantitySelected={setQuantitySelected} productData={data} />
           )}
         </div>
       </div>

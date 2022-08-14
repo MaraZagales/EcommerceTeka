@@ -3,16 +3,14 @@ import { CartContext } from "../../context/CartContext"
 import Button from "react-bootstrap/Button";
 import "./ItemCount.scss";
 
-const ItemCount = ({ stock,setQuantitySelected, productData }) => {
+const ItemCount = ({ stock,quantitySelected, productData }) => {
   
   const { addProductToCart } = useContext(CartContext)
-
-  const [contador, setContador] = useState(1);
+  const [contador, setContador] = useState(0);
 
   const onAdd = (contador) => {
-    console.log("Agregar al carrito: ", productData)
-    addProductToCart(productData)
-    setQuantitySelected(contador)
+    quantitySelected(contador);
+    addProductToCart(productData, contador)
   };
 
   const addNumber = () => {
@@ -20,6 +18,7 @@ const ItemCount = ({ stock,setQuantitySelected, productData }) => {
       setContador(contador + 1);
     }
   };
+  
   const removeNumber = () => {
     if (contador > 1) {
       setContador(contador - 1);
