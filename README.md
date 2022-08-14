@@ -12,6 +12,6 @@ Solo disponible desde clonacion
 
 ### Dependencias
 
-- Reac-Bootstrap: Para maquetado de ciertos componentes de la App 
+- React-Bootstrap: Para maquetado de ciertos componentes de la App 
 - Sass: Para darle estilos a la App 
 -
