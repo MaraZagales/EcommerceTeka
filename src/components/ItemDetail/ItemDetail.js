@@ -11,16 +11,16 @@ const ItemDetail = ({ data }) => {
   return (
     <div className="itemDetail">
       <img src={`/assets/${image}`} className="itemImg" alt="Imagen producto" />
-      <div>
+      <div className="itemDet">
         <h3 className="itemTitle">{title}</h3>
         <p className="itemDescription">{description}</p>
         <p className="itemPrice">$ {price}</p>
         
         <div className="itemCheckOut" >
           {quantitySelected > 0 ? (
-            <Button variant="outline-secondary" className="cardButton">
-              <Link to="/cart">TERMINAR COMPRA</Link>
-            </Button>
+              <Link to="/cart"><Button variant="outline-secondary" className="cardButton">
+            TERMINAR COMPRA
+            </Button></Link>
           ) : (
             <ItemCount stock={stock} quantitySelected={setQuantitySelected} productData={data} />
           )}

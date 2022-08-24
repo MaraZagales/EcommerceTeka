@@ -1,38 +1,59 @@
-.itemDetail{
+.itemDetail {
+  display: flex;
+  flex-direction: row;
+  margin: 50px;
+  padding: 20px;
+
+  .itemDet {
+    margin: 20px;
+  }
+
+  .itemImg {
+    width: 20%;
+    margin: 20px;
+    border: solid 5px #434343;
+    box-shadow: 2px 2px 2px 2px rgba(160, 158, 158, 0.59);
+  }
+
+  .itemCount {
     display: flex;
-    flex-direction: row;
-    .itemImg{
-        width: 20%;
-    }
-    .itemCount{
-        display: flex;
-        flex-direction: column;
-    }
-    .itemTitle{
+    flex-direction: column;
+    margin: 15px;
+    padding: 5px;
+  }
+
+  .itemTitle {
     margin: 15px;
     padding: 5px;
     color: #434343;
     text-transform: uppercase;
     text-shadow: 0.5px 0.5px #a09e9e;
-    }
+  }
 
-    .itemDescription{
-        margin: 15px;
-        padding: 5px;
-        color: #434343;
-        font-size: 15px;
-    }
-    
-    .itemPrice{
-        margin: 15px;
-        padding: 5px;
-        color: #434343;
-        font-size: 15px;
-    
-    }
+  .itemDescription {
+    margin: 15px;
+    padding: 5px;
+    color: #434343;
+    font-size: 15px;
+  }
 
-    .cardButton{
-        margin: 15px;
-        padding: 5px;
-    }
+  .itemPrice {
+    margin: 15px;
+    padding: 5px;
+    color: #434343;
+    font-size: 20px;
+  }
+
+  .cardButton {
+    margin: 15px;
+    padding: 5px;
+  }
+  .cardAction {
+    margin: 15px;
+    padding: 5px;
+  }
+  .cardStock {
+    margin: 15px;
+    padding: 5px;
+  }
 }

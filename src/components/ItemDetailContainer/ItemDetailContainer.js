@@ -1,36 +1,31 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import "./ItemDetailContainer.scss";
-import products from "../../utils/products.mock";
 import { useParams } from "react-router-dom";
-
+//firebase
+import db from "../../FirebaseConfig";
+import {doc, getDoc} from "firebase/firestore"
+import { async } from "@firebase/util";
 
 const ItemDetailContainer = () => {
   
   const [productData, setProductData] = useState({})
   const {id} = useParams()
 
-  const filterId = products.filter((products) => products.id === Number(id))
-  
-  const getItem = () => new Promise( (resolve, reject) => {
-      setTimeout(() => {
-          resolve(filterId[0]);
-      }, 2000);
-  })
+  useEffect( () => {
+      getProduct()
+      .then ((res) => {
+        setProductData(res)
+      })
+  }, [id]);
 
-  useEffect(() => {
-      const ItemAwait = async() => {
-          try {
-              const res = await getItem()
-              setProductData(res);
-          }
-
-          catch(error) {
-              console.log(error);
-          }
-      }
-      ItemAwait();
-  }, []);
+  const getProduct = async () => {
+    const docRef = doc(db, 'productos', id)
+    const docSnapshot = await getDoc(docRef)
+    let product = docSnapshot.data()
+    product.id = docSnapshot.id
+    return product
+  }
 
   return (
     <div className="listDetail">

@@ -46,7 +46,7 @@ const ItemCount = ({ stock,quantitySelected, productData }) => {
           +
         </Button>        
       </div>
-      <div className="card-action">
+      <div className="cardAction">
         <Button
           variant="outline-secondary"
           onClick={() => onAdd(contador)}
@@ -55,7 +55,7 @@ const ItemCount = ({ stock,quantitySelected, productData }) => {
          Agregar al Carrito
         </Button>
       </div>
-      <div className="card-stock">
+      <div className="cardStock">
         Stock disponible: <b>{stock}</b>
       </div>
     </div>
