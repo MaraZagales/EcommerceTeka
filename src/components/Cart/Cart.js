@@ -1,20 +1,60 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { CartContext } from "../../context/CartContext";
 import "./Cart.scss";
+import Modal from "../Modal/Modal";
+import db from "../../FirebaseConfig";
+import { collection, addDoc } from 'firebase/firestore';
+ 
 
 const Cart = () => {
   const { cartProducts, clearAll, clearProduct, totalCart } =
     useContext(CartContext);
+  const [showModal, setShowModal] = useState(false);
+  const [success, setSuccess] = useState()
+
+  const [order, setOrder] = useState({
+    items: cartProducts.map((product) => {
+      return {
+        id: product.id,
+        title: product.title,
+        price: product.price,
+      };
+    }),
+    buyer: {},
+    date: new Date().toLocaleString(),
+    total: totalCart,
+  });
+
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const submitData = (e) => {
+    e.preventDefault();
+    pushData({ ...order, buyer: formData });
+  };
+
+  const pushData = async (newOrder) => {
+    const collectionOrder = collection(db, "ordenes");
+    const orderDoc = await addDoc(collectionOrder, newOrder);
+    setSuccess (orderDoc.id);
+    
+  };
 
   return (
     <div>
       {cartProducts.length > 0 ? (
         <>
           <p className="cardStock">
-            Tienes {cartProducts.length} productos en tu carro de
-            compras.{" "}
+            Tienes {cartProducts.length} productos en tu carro de compras.{" "}
           </p>
 
           {cartProducts.map((product) => {
@@ -30,7 +70,7 @@ const Cart = () => {
                     <div className="cardDescription">
                       <div>
                         <h5>{product.name}</h5>
-                        <p className="cart-item">Precio: $ {product.price}</p>
+                        <p className="cartItem">Precio: $ {product.price}</p>
                         <p>Cantidad seleccionada: {product.contador}</p>
                       </div>
 
@@ -83,10 +123,51 @@ const Cart = () => {
           <div>No tienes productos en el carrito</div>
           <Link to="/">
             <Button variant="outline-secondary" onClick={() => clearAll()}>
-             Seguir Comprando
+              Seguir Comprando
             </Button>
           </Link>
         </>
+      )}
+
+      <Button variant="outline-secondary" onClick={() => setShowModal(true)}>
+        Finalizar Compra
+      </Button>
+
+      {showModal && (
+        <Modal title="Datos de Contacto" close={() => setShowModal()}>
+           {success ? (
+                            <>
+                               <h2>Su orden se genero correctamente</h2>
+                               <p>Fecha de compra : {}</p>
+                               <p>ID de compra : {success}</p>
+                            </>
+                        ) : (
+          <form onSubmit={submitData}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Ingrese el nombre"
+              onChange={handleChange}
+              value={formData.name}
+            />
+            <input
+              type="number"
+              name="phone"
+              placeholder="Ingrese el telefono"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Ingrese el mail"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <Button variant="outline-secondary" type="submit">Enviar</Button>
+          </form>
+      )}
+        </Modal>
       )}
     </div>
   );
