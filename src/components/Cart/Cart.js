@@ -50,7 +50,7 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <div className="cart">
       {cartProducts.length > 0 ? (
         <>
           <p className="cardStock">
@@ -64,8 +64,8 @@ const Cart = () => {
               <div>
                 <div key={product.id}>
                   <div className="productCart">
-                    <div className="cardImage">
-                      <img src={`/assets/${product.image}`} alt="Producto" />
+                    <div >
+                      <img src={`/assets/${product.image}`} alt="Producto" className="cardImage"/>
                     </div>
                     <div className="cardDescription">
                       <div>
@@ -122,14 +122,14 @@ const Cart = () => {
         <>
           <div>No tienes productos en el carrito</div>
           <Link to="/">
-            <Button variant="outline-secondary" onClick={() => clearAll()}>
+            <Button variant="outline-secondary" className="card-action" onClick={() => clearAll()}>
               Seguir Comprando
             </Button>
           </Link>
         </>
       )}
 
-      <Button variant="outline-secondary" onClick={() => setShowModal(true)}>
+      <Button variant="outline-secondary" className="card-action" onClick={() => setShowModal(true)}>
         Finalizar Compra
       </Button>
 
@@ -142,11 +142,12 @@ const Cart = () => {
                                <p>ID de compra : {success}</p>
                             </>
                         ) : (
-          <form onSubmit={submitData}>
+          <form onSubmit={submitData} className="formModal">
             <input
               type="text"
               name="name"
               placeholder="Ingrese el nombre"
+              required
               onChange={handleChange}
               value={formData.name}
             />
@@ -154,6 +155,7 @@ const Cart = () => {
               type="number"
               name="phone"
               placeholder="Ingrese el telefono"
+              required
               value={formData.phone}
               onChange={handleChange}
             />
@@ -161,10 +163,11 @@ const Cart = () => {
               type="email"
               name="email"
               placeholder="Ingrese el mail"
+              required
               value={formData.email}
               onChange={handleChange}
             />
-            <Button variant="outline-secondary" type="submit">Enviar</Button>
+            <Button variant="outline-secondary" type="submit" className="buttonSend">Enviar</Button>
           </form>
       )}
         </Modal>

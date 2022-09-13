@@ -4,47 +4,24 @@ import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const links = [
-    { name: "Mesas", url: "/category/Mesas" },
-    { name: "Bibliotecas", url: "/category/Bibliotecas" },
-    { name: "Racks TV", url: "/category/Racks" },
-    { name: "Decoración", url: "/category/Decoracion" },
-    { name: "Mesas de luz", url: "/category/MesasDeLuz" },
-    { name: "Todos los productos", url: "/productos" },
-  ];
-
+  
   return (
     <div>
       <nav className="navBar">
         <div>
-          <Link to="/">
-          <img src="/assets/logoTeka.jpg" className="logoNav" alt="logo de Teka" />
+          <Link to="/" className="logoNav">
+          <h1>TEKA LIVINGS</h1>
         </Link>
         </div>
-        <div>
-        <ul>
-          <Link to="/">
-            <li className="navLink">Inicio</li>
-          </Link>
-          <li className="navLink">
-            Productos
-            <ul>
-              {links.map((l, i) => {
-                return (
-                  <Link to={l.url}> <li className="navLink" key={i}>{l.name}</li></Link>  
-                );
-              })}
-            </ul>
-          </li>
-          <Link to="/nosotros">
-            <li className="navLink">Sobre Nosotros</li>
-          </Link>
-          <Link to="/contacto">
-            <li className="navLink">Contactanos</li>
-          </Link>
+        <div className="divMenu">
+        <ul className="navMenu">
+        <Link to="/" className="navLink"><li>Inicio</li></Link>
+        <Link to="/category/Mesas" className="navLink"><li>Mesas</li></Link> 
+        <Link to="/category/Bibliotecas" className="navLink"><li>Bibliotecas</li></Link> 
+        <Link to="/category/Racks" className="navLink"><li>Racks</li></Link> 
+        <Link to="/category/Decoracion" className="navLink"><li>Decoracion</li></Link> 
+        <Link to="/contacto" className="navLink"><li> Contactanos </li> </Link>   
         </ul>
-        </div>
-        <div>
         <CartWidget />
         </div>
       </nav>

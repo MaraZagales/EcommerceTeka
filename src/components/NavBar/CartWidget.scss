@@ -1,0 +1,19 @@
+.cartW{
+    color: #434343;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    outline: none;
+
+
+    &:hover {
+        color: rgb(234, 147, 93);
+              
+   }
+
+   .cartCount{
+    color: rgb(234, 147, 93);
+    font-size: 12px;
+    padding: 5px;
+   }
+}

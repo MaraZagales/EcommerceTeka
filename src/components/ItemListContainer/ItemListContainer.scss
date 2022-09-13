@@ -1,11 +1,28 @@
 .listProducts {
-  h2 {
+  .titleTeka {
     margin: 15px;
     padding: 5px;
-    color: #434343;
+    color: #fff;
     text-transform: uppercase;
-    text-shadow: 0.5px 0.5px #a09e9e;
+    text-align: center;
+    background-image: url(../../../public/assets/principal2.jpeg);
+    background-repeat: repeat;
+    background-position: center;
+    height: 350px;
+    margin: 20px;
+    padding: 80px;
+    font-size: 45px;
+    text-shadow: 1px 1px #434343;
+    letter-spacing: 2px;
   }
+  .titleProducts{
+    color: #434343;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 50px;
+  }
+
   .containerProducts{
     display: flex;
     flex-direction: row;

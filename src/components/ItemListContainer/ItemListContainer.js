@@ -1,45 +1,41 @@
 import { useEffect, useState } from "react"
 import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
-import products from '../../utils/products.mock'
 import { useParams } from 'react-router-dom';
-import {collection, getDocs} from "firebase/firestore";
-import db from "../../FirebaseConfig";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
+
 
 
 const ItemListContainer = ({title}) => {
 
-        const [listProducts, setListProducts] = useState([])
-        const { categoryName } = useParams()
-        
-        const filterCategory = products.filter((products) => products.category === categoryName)
-        
-        const getProducts = async () => {
-            
-            const productCollection = collection(db, 'productos')
-            const productSnapshot= await getDocs(productCollection)
-            const productList = productSnapshot.docs.map( (doc) =>{
-                let product = doc.data()
-                product.id = doc.id
-                return product
-            })
-          return productList
-        }
-       
+    const [ data, setData ] = useState([]);
+    const { categoryId } = useParams();
+    
+    useEffect(() => {
+        const querydb = getFirestore();
+        const queryCollection = collection(querydb, 'productos')
 
-       useEffect(() => {
-        getProducts()
-        .then ((res) =>{
-            setListProducts(res)
-        })
-    },[])
+        if(categoryId) {
+            const queryFilter = query(queryCollection, where('category', '==', categoryId))
+
+            getDocs(queryFilter)
+            .then(
+                res => setData(res.docs.map( producto => ({ id: producto.id, ...producto.data() })))
+            )
+        } else {
+            getDocs(queryCollection)
+            .then(
+                res => setData(res.docs.map( producto => ({ id: producto.id, ...producto.data() }))))
+        }
+    }, [categoryId])
 
 
     return(
         <div className='listProducts'>
-            <h2>{title}</h2>
+            <h2 className="titleTeka">Bienvenidos al mundo Teka</h2>
+            <h2 className="titleProducts">{title}</h2>
             <div className="containerProducts">
-            <ItemList data = {listProducts}/>
+            <ItemList data = {data}/>
             </div>
         </div>
     )
