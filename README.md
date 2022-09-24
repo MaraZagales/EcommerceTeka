@@ -13,4 +13,5 @@ Solo disponible desde clonacion
 
 - React-Bootstrap: Para maquetado de ciertos componentes de la App 
 - Sass: Para darle estilos a la App 
--
+
+![image](../ecommerce-teka/public/assets/git-teka.gif)
